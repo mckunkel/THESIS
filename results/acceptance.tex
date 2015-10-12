@@ -1,0 +1,25 @@
+\section{Acceptance}\label{sec:results.acceptance}
+
+The simulation package was verified for both geometry and detector response efficiency in Sec~\ref{sec:analysis.simulation}. The acceptance for the cross-sections presented in this work was measured using phase-space Monte-Carlo (\abbr{MC}\label{abbr:mc}) simulation, using PLUTO++~\cite{PLUTO} as the generator, for the reaction channels,
+\begin{subequations}
+\begin{singlespacing}\begin{align}
+    \gamma \p \rightarrow & \ p \pi^{0} \nonumber \\[-0.4em]
+    & \ \hookrightarrow p \gamma \gamma \nonumber \\[-0.4em]
+    & \qquad \hookrightarrow p e^+ e^- \gamma
+    \label{eq:simproduct1}
+\end{align}
+\begin{align}
+    \gamma \p \rightarrow & \ p \pi^{0} \nonumber \\[-0.4em]
+    & \ \hookrightarrow p e^+ e^- \gamma.
+    \label{eq:simproduct2}
+\end{align}\end{singlespacing}
+\end{subequations} 
+A total of events, $N_g$, was generated and this number was weighted by the relative branching ratios found in Table~\ref{tab:targetspecs} to resemble the conditions of the data. The number of events generated for the reaction channel~\ref{eq:simproduct1} can be found in Table~\ref{tab:simnumspecs} as $N_c$. The number of events generated for the reaction channel n~\ref{eq:simproduct2} can be found in Table~\ref{tab:simnumspecs} as $N_d$.
+\input{tables/simnumspecs.tex}
+After the events are generated, they are inputted into the \abbr{CLAS} simulation chain \abbr{GAMP2BOS}\label{abbr:gamp2bos}, \abbr{GSIM}\label{abbr:gsim}, \abbr{GPP}\label{abbr:gpp}, and then reconstructed with the same program used to reconstruct the data, \abbrlc{}{a1c}\label{abbr:a1c}, all programs in the simulation chain use the parameters and the run index described in Sec.~\ref{sec:analysis.simulation},. For a detailed explanation of this chain, refer to Sec.~\ref{sec:analysis.simulation}. Once the events are processed through \abbrlc{}{a1c}, the cuts described in Secs.~\ref{sec:analysis.data.reduction}, ~\ref{sec:analysis.fitting.compare}, are applied as they are to the real data. The acceptance $\eta(E_\gamma,\theta^{\pi^0}_{C.M.})$ is then determined by adding the simulations for the conversion and the dalitz, then for photon energy bins of 25 MeV increments and $\Delta\cos\theta^{\pi^0}_{C.M.} = 0.0125$ increments, the ratio of reconstructed events ($N_R$) to generated events ($N_G$) yields,
+\begin{equation}\label{eq:acceptance}
+    \eta(E_\gamma,\cos\theta^{\pi^0}_{C.M.}) = \frac{N_R(E_\gamma,\cos\theta^{\pi^0}_{C.M.})}{N_G(E_\gamma,\cos\theta^{\pi^0}_{C.M.})} \ .
+\end{equation}
+The $\Delta\cos\theta^{\pi^0}_{C.M.}$ binning in the acceptance is a factor of 2.4 finer than the smallest $\Delta\cos\theta^{\pi^0}_{C.M.}$ increment used in the cross-section measurement. If an accurate physics model for the generator had been used, as was in Sec.~\ref{sec:analysis.simulation}, the binning for the acceptance  would not have had to be so fine.
+
+% this was done to eliminate any fluctuations in the simulation that might have been caused by the detector and is discussed in Sec.~\ref{sec:results.systematics}. This finer binning could be

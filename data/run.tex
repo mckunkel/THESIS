@@ -1,0 +1,11 @@
+\section{\label{sec:data.runsum}Run Summary}
+
+The \g12 experiment is divided into several ``runs,'' each consisting of approximately 50 million triggers. Calibrations were largely determined and applied based on run number or a specific range of runs. Table~\ref{tab:data.cook.prodruns} contains a list of the runs that had at least 1M triggers and were reconstructed successfully, along with the current of the beam for these runs. Table~\ref{tab:data.cook.singlesecruns} shows a list of the single-sector runs taken throughout the \g12 running period. Data from these runs represent approximately 97\% of the production running period of \g12. There were many diagnostic runs that were not recorded. Most of these involved testing the \abbr{DAQ} system, however, the run number still incremented for each of these. Further complicating matters, several files did not have adequate information for the reconstruction process due to hardware failures during periods where the \abbr{DAQ} was active and data was being written to disk --- wire tripping in the \abbr{DC}, for example. In the end, the \g12 experiment consisted of 622 ``good'' runs starting with 56363 and ending with 57317.
+
+\input{tables/g12_prod_runs} % label:  tab:data.cook.prodruns
+
+\input{tables/g12_single_sec_runs} % label:  tab:data.cook.singlesecruns
+
+In addition to the production data taken, there were several special \emph{calibration} runs which are listed in Table~\ref{tab:data.calibruns}. These consisted of normalization, zero-field, and empty-target data. The normalization runs were used to calibrate the tagger for the measurement of the total photon flux and there were two specific runs for the left and right \abbr{TDC} signals of the tagger to check for consistency. The zero-field data was taken with the main torus magnet off. This meant that the particles traveled in straight lines through the drift-chamber which made track reconstruction simple and accurate. Though their momenta were unknown, these tracks were used to account for the position and orientation of the drift-cambers in the reconstruction. Finally, the empty target run was used to investigate the contributions of the target wall to the data sample.
+
+\input{tables/g12_special_runs.tex} % label:  tab:data.calibruns

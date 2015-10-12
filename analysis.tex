@@ -1,0 +1,20 @@
+\begin{flushleft}
+\begin{flushleft}
+
+\end{flushleft}
+\end{flushleft}\chapter{Particle Reconstruction and Analysis}\label{sec:analysis}
+
+This chapter will explore the methods and techniques used for particle reconstruction and analysis. There were 2 packages of algorithms used to perform particle identification, while only one was used for the analysis part. The algorithms used for particle identification were codes compiled in the \emph{``clas6-trunk''} under the package \abbr{CLASEVENT}. \abbr{CLASEVENT} is a C++, class-based package written primarily by Dennis Weygand for the purpose of analyzing the output of the reconstruction program that was discussed in Sec.~\ref{sec:data.cook}. For this analysis, \abbr{CLASEVENT} was utilized to skim the reconstructed data and output the data into \abbr{ROOT} format for later evaluation. 
+
+The second set of algorithms used to perform this analysis were written primarily by the author, except for the algorithms pertaining to the kinematic fitter. The second set of algorithms were built off of the \abbr{ROOT} platform. The kinematic fitter algorithms were written by Dustin Keller and the procedure of kinematic fitting is discussed in Sec.~\ref{sec:analysis.fitting}. 
+\input{analysis/event}
+\input{analysis/corrections}
+\input{analysis/cuts}
+\input{analysis/simulation}
+\input{analysis/fitting}
+\input{analysis/DATA_REDUCTION/timing}
+\input{analysis/Kinematics_verify}
+\input{analysis/target_density}
+\input{analysis/gflux}
+\input{results/normalization} 
+%\input{analysis/general}

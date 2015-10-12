@@ -1,0 +1,200 @@
+\tolerance=10000
+
+     \documentclass[12pt]{report} 
+
+\usepackage{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,bm,bbold}
+\usepackage{amssymb}
+\usepackage{slashed}
+
+%\usepackage[caption=false]{subfig}
+%\usepackage[lofdepth,lotdepth]{subfig}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage[toc]{appendix}
+%\usepackage{color}
+%\usepackage[usenames,dvipsnames]{color}
+
+\usepackage{setspace}
+\usepackage{placeins}
+\usepackage{wasysym}
+\graphicspath{{/Users/Mike/phdthesis/MY_THESIS/figures/print/}}
+
+%%%%%%%%%%%%%%%%%
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage{cleveref}
+
+\usepackage[export]{adjustbox}
+
+
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{pifont}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{convert gif:#1 png:\OutputFile}
+\AppendGraphicsExtensions{.gif}
+
+\usepackage{slashed}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{ODUthesis}  %%%%%%%%%%%%%
+\usepackage{longtable}
+\makeatletter
+\def\LT@c@ption#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty\else
+     {\let\\\space
+     \addcontentsline{lot}{table}{\protect\numberline{\thetable.}{#2}}}%
+  \fi}
+\makeatother
+
+%\renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{equation}}
+
+%\tablespagefalse
+
+\usepackage[labelsep=period]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{document}
+\input{variables}
+
+%%%%%%%%%%%%%%%%%%%%% Publisher's Area please ignore %%%%%%%%%%%%%%%
+%
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Photoproduction of \piz on hydrogen with CLAS from 1.1 GeV - 5.45 GeV using $\lowercase{e}^{+}\lowercase{e}^{-}\gamma$ decay}
+
+
+\author{Michael C. Kunkel}  
+
+      
+        \principaladviser{Moskov Amaryan}
+\member{Ian Balitsky}  %This command produces a signature line for the specified member on the
+\member{Alex Godunov}  %title page. Use on instance of this command for each member of the
+                   %committee other than the advisor up to a total of 5 members.
+\member{Chester Grosch} 
+\member{Lawrence Weinstein} 
+
+
+\degrees{M.S. May 2008, Old Dominion University}
+
+\dept{Physics}          %for example \dept{physics}
+
+\submitdate{December 2014}
+
+%\phdfalse          %produces language on title page for Masters Thesis. Otherwise the default
+                    %is for a Ph.D. dissertation.
+
+%\copyrightfalse    %suppresses copyright notice
+
+%\figurespagefalse  %suppresses List of Figures
+
+%\tablespagefalse   %suppresses List of Tables
+
+%\vita{The text of the Vita goes here.}
+
+
+\abstract{Photoproduction of the $\pi^0$ meson was studied using the \textsc{\texttt{CLAS}} detector at the Thomas Jefferson National Accelerator Facility using tagged incident photon energies spanning the range $E_{\gamma}=$~1.1~GeV~-~5.45~GeV. The measurement is performed on a liquid hydrogen target in the reaction $\gamma p\to pe^+e^-(\gamma)$. The final state of the reaction is the sum of two subprocesses for $\pi^0$ decay, the Dalitz decay mode of $\pi^0\to e^+e^-\gamma$ and conversion mode where one photon from $\pi^0\to \gamma\gamma$ decay is converted into a $e^+e^-$ pair. This specific final state reaction avoided limitations caused by single prompt track triggering, while the span of incident photon energies allowed for measurements of $\pi^0$ photoproduction to a domain never systematically measured before.% and allowed a kinematic range extension to the world data on $\pi^0$ photoproduction to a domain never systematically measured before.
+\newline \indent We report the measurement of the $\pi^0$ differential cross sections $\frac{d\sigma}{d\Omega}$ and $\frac{d\sigma}{dt}$. The angular distributions agree well with the SAID parametrization for incident beam energies below 3~GeV. As a result with this new data, the $\chi^2/p.d.f.$ of the global fit in the SAID parametrization improved to 3.1 from 3.7. For incident beam energies greater than $3$~GeV a comparison of a model based on Generalized Parton Distributions (\textsc{\texttt{GPD}}) with experimental data shows significant discrepancy, requiring further model developments to describe the data.  %For incident beam energies greater than 3~GeV, a model involving Generalized Parton Distributions (\textsc{\texttt{GPD}}) along with the models predictions are discussed. The comparison of the model to the measurement shows discrepancy, suggesting that the \textsc{\texttt{GPD}} model does not adequately describe the production of $\pi^0$.
+% while for an interpretation of the data within the \textsc{\texttt{GPD}} handbag model is discussed for incident beam energies greater than 3~GeV. As a result with this new data, the $\chi^2/p.d.f.$ of the global fit in the SAID parametrization improved to 3.1 from 3.7.}
+}
+
+
+
+
+\beforepreface
+
+\prefacesection{Acknowledgements}
+\input{acknowledgements}
+\prefacesection{Dedication}
+\input{dedication}
+\afterpreface
+\input{intro}
+\input{tjnaf}
+\input{g12}
+\input{analysis}
+\input{results}
+\newpage
+
+
+
+\begin{singlespacing}
+
+    \clearpage
+    \phantomsection 
+    \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
+    \bibliographystyle{unsrt}
+    \bibliography{%
+        bibliography/texts,%
+        bibliography/pdg,%
+        bibliography/g12_proposals,%
+        bibliography/jlab_news,%
+        bibliography/clas_detectors,%
+        bibliography/clas_theses,%
+        bibliography/articles,%
+        bibliography/extra}
+
+    %\clearpage
+    %\phantomsection \addcontentsline{toc}{chapter}{Index}
+    %\printindex
+
+\end{singlespacing}
+%\cleardoublepage
+%\phantomsection
+%
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\begin{thebibliography}{11}
+%\end{thebibliography}
+
+\newpage
+\addcontentsline{toc}{chapter}{APPENDICES}
+\let\oldaddtocontents\addtocontents \renewcommand{\addtocontents}[2]{}
+\begin{appendices} 
+\input{app}
+\end{appendices}
+
+
+\chapter*{VITA}
+\addcontentsline{toc}{chapter}{\protect VITA}
+
+\section*{Personal Data}
+
+\begin{tabular}{rl}
+Name: & Michael C. Kunkel\\
+Address: & Department of Physics
+ 4600 Elkhorn Ave\\
+ & Norfolk, VA 23529 
+\end{tabular}
+\section*{Education}
+\begin{flushleft}
+\begin{tabular}{rl}	
+August, 2007-August, 2014:  &Ph.D. in Physics- Old Dominion University,\\& Norfolk, VA\\
+
+%------------------------------------------------
+
+August, 2007- August, 2008:& MS in Physics- Old Dominion University,\\& Norfolk, VA\\
+%&\\
+%------------------------------------------------
+
+August, 2003-August, 2007: &BS in Space Physics- Embry-Riddle Aeronautical  University,\\& Prescott, AZ\\
+
+August, 2003-August, 2007: &BS in Aeronautics- Embry-Riddle Aeronautical  University,\\& Prescott, AZ\\
+
+August, 2001-August, 2003: &Type 65 Certification Airframes and Powerplants -\\ Embry-Riddle Aeronautical  University, & Camp Pendleton, CA\\
+
+%------------------------------------------------
+\end{tabular}
+\end{flushleft}
+\end{document}

@@ -1,0 +1,44 @@
+\chapter{\label{sec:app.tofe}\abbr{TOF} Energy Deposit Cut}
+
+Listed below is a summary of the time-of-flight energy deposit cuts where $p$ is the momentum of the particle in GeV, and the energy deposit, $\frac{\Delta E}{\Delta x}(\mathtt{TOF})$, is in units of MeV/cm. Each cut consists of a linear part applied below a certain momentum and a $p^{-2}$ part above this momentum.
+
+\begin{itemize}
+    \item[] protons:
+    \begin{itemize}
+        \item[] $p > 0.4$~GeV
+        \begin{itemize}
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) > 1.45 + \frac{1}{0.4 (p - 0.07)^2}$~MeV/cm
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) < 2.70 + \frac{1}{0.9 (p - 0.15)^2}$~MeV/cm
+        \end{itemize}
+        \item[] $p \leq 0.4$~GeV
+        \begin{itemize}
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) > 59 p - 14.5$~MeV/cm
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) < 59 p - 10.0$~MeV/cm
+        \end{itemize}
+    \end{itemize}
+    \item[] pions:
+    \begin{itemize}
+        \item[] $p > 0.08$~GeV
+        \begin{itemize}
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) > 1.3 + \frac{1}{40 (p + 0.02)^2}$~MeV/cm
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) < 2.5 + \frac{1}{ 8 (p + 0.03)^2}$~MeV/cm
+        \end{itemize}
+        \item[] $p \leq 0.08$~GeV
+        \begin{itemize}
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) > 0$~MeV/cm
+        \end{itemize}
+    \end{itemize}
+    \item[] kaons:
+    \begin{itemize}
+        \item[] $p > 0.22$~GeV
+        \begin{itemize}
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) > 1.5 + \frac{1}{ 3 (p + 0.05)^2}$~MeV/cm
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) < 2.6 + \frac{1}{ 4 (p + 0.12)^2}$~MeV/cm
+        \end{itemize}
+        \item[] $p \leq 0.22$~GeV
+        \begin{itemize}
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) > 59 p - 7$~MeV/cm
+            \item[] $\frac{\Delta E}{\Delta x}(\mathtt{TOF}) < 59 p$~MeV/cm
+        \end{itemize}
+    \end{itemize}
+\end{itemize}

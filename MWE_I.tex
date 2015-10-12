@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Michael C. Kunkel}
+\usepackage{longtable}
+\makeatletter
+\def\LT@c@ption#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty\else
+     {\let\\\space
+     \addcontentsline{lot}{table}{\protect\numberline{\thetable.}{#2}}}%
+  \fi}
+\makeatother
+%\addcontentsline{toc}{chapter}{\uppercase{List of Tables}}
+\usepackage{ODUthesism}  %%%%%%%%%%%%%
+\begin{document}
+M.W.E.
+
+\listoftables
+ 
+\newpage
+\begin{table}[h!]
+\begin{minipage}{\textwidth}
+\begin{center}
+
+
+\caption[Table 1]{\label{tab:eff_events}Table 1 \vspace{0.75mm}}
+
+\begin{tabular}{c|c|c}
+
+\hline
+Item & Data & Category \\
+\hline
+item 1 & data 1& cat 1 \\
+\hline \hline
+\end{tabular}
+
+\end{center}
+\end{minipage}
+\end{table}
+
+% % % % % % % % % % % % % % % % % % % %
+
+
+
+
+\begin{center}
+\begin{longtable}{lr||lr}
+\caption[G12 Production Run List Excluded From Current Analysis]{\label{tab:excluded_runs}G12 production runs excluded from current analysis and the reasoning}\\ %\vspace{0.75mm}
+
+\hline \hline
+\multicolumn{2}{l||}{Excluded Run}  & \multicolumn{2}{l}{Excluded Run} \\
+\multicolumn{2}{r||}{Exclusion Reason} & \multicolumn{2}{r}{Exclusion Reason} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{l}{\scriptsize continued from previous page.} \\
+\hline
+\multicolumn{2}{l||}{Excluded Run}  & \multicolumn{2}{l}{Excluded Run} \\
+\multicolumn{2}{r||}{Exclusion Reason}  & \multicolumn{2}{r}{Exclusion Reason} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{r}{\scriptsize continued on next page.} \\
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+56476	&	 Single-prong Run 		&	56408	&	  Lepton TrigBit (6) Not Set 	\\
+
+
+\end{longtable}
+\end{center}
+\end{document}

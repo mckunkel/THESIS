@@ -1,0 +1,21 @@
+\section{\label{sec:data.calib}Calibrations}
+
+The raw data recorded from the \abbr{CLAS} detector consisted of timing and pulse-height information from the drift-chambers and counters. Timing from all the elements such as wires and \abbr{PMT}s were initially offset from each other. The alignment of these times was accomplished during the reconstruction (see Sec.~\ref{sec:data.cook}) using a database that stored the corrections needed to produce timings that were relative to each other. The \abbr{ADC} pulse height was used by the start counter and time-of-flight to account for the propagation time of the signal, in this case light from the scintillator, to the \abbr{PMT}. Determining these corrections took us a year and three months with a team consisting of two \abbr{JLab} staff scientists, three university professors, two post-docs and four graduate students as listed in Table~\ref{tab:calibrators}. This huge amount effort was neccessary due to the large extent of timing information from such a complex detector.
+
+\input{tables/calibrators.tex} % label: tab:calibrators
+
+The general calibration procedure began by determining the timing offset of the systems associated with the event trigger which were the start counter, time-of-flight and tagger. Then, the drift chambers were calibrated for physical alignment and \abbr{TDC} alignment using the zero-field run. The tracks obtained from the \abbr{DC}, along with the \abbr{ADC} signals from the \abbr{ST} and \abbr{TOF} could then be combined to determine the time-walk corrections which were used in subsequent iterations. This process would then be repeated several times until adequate resolutions in the various subsystems were achieved.
+
+We started by aligning all the \abbr{TDC} signals from the scintillators ``paddle to paddle'' in the start counter, tagger and time-of-flight systems. Then, the timings of these systems as a whole were aligned to the radio-frequency time (\abbr{RF}) from the accelerator beam. This \abbr{RF} clock provided the most accurate timing information (approximately 50~ps resolution), and as a result, the likely-hood of choosing the electron in the tagger associated with the photon that interacted in the target to create the event was much greater.
+
+After this initial calibration, several things took place in parallel. First, we determined the positions of the drift-chambers using the zero-field run where all tracks in the \abbr{DC} were straight. Secondly, the start counter and time-of-flight timings were corrected for \emph{time-walk}. This accounted for the time it took from the physical passing of the particle through the scintillator to the final \abbr{TDC} signal that was recorded in the data stream. We used the magnitude of the \abbr{ADC} signal to determine the position of the track inside the scintillator paddle and obtained a correction to the \abbr{TDC} signal. Finally, the electromagnetic calorimeter and the \v{C}erenkov detector signals were aligned in time.
+
+Once this was accomplished, we went back to the alignment of the \abbr{TDC}s in the start counter, tagger and time-of-flight which led to another pass of the calibrations. Each of the steps above contained several iterations themselves. We performed four complete passes, as well as several others where only some systems were corrected, before the data were calibrated well enough to use for physics analysis.
+
+\subsection{\label{sec:data.calib.org}Organization of Calibration Procedure}
+
+During the \g12 run, there were several hardware and software changes which required recalibration of the affected systems. These included changes such as the event trigger or cable lengths from the start counter. Each time a change was made, the subsequent runs were treated separately from the previous runs. A list of runs where such changes were made are listed in Table~\ref{tab:data.cook.org.runs}.
+
+\input{tables/g12_calib_runs.tex} % label:  tab:data.cook.org.runs
+
+\input{data/calib_systems.tex}

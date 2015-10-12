@@ -1,0 +1,31 @@
+\begin{table}
+\begin{minipage}{\textwidth}
+\begin{center}
+\begin{singlespacing}
+
+\caption[Single Timing Relationships]{\label{tab:timings}Relative timing relationships for the terms of Eq.\ref{eqn:detector_time}. The time ranges are the approximate correction amplitudes applied to the data. The column ``fn.\ of \abbr{PID}'' indicates if the time is dependent on the particle mass or momentum.}
+
+\begin{tabular}{lrcp{25ex}}
+
+\hline \hline
+
+term & approx.\ range & fn.\ of \abbr{PID}? & description \\
+
+\hline
+
+$t_\mathtt{TDC}$ & 0--400~ns & no & recorded time by the electronics \\
+$t_\mathrm{start}$ & 0--400~ns & no & event start time \\
+$t_\mathrm{flight}$ & 20--50~ns & yes & particle flight time from vertex \\
+$t_\mathrm{prop}$ & 0.1--10~ns & yes & signal propagation time \emph{to} electronics \\
+$t_\mathrm{walk}$ & 100--400~ps & yes & descriminator response time \\
+$t_\mathrm{elec}$ & 0.1--10~ns & no & signal propagation time \emph{in} electronics \\
+
+\hline \hline
+
+\end{tabular}
+
+\end{singlespacing}
+\end{center}
+\end{minipage}
+\end{table}
+\vspace{20pt}

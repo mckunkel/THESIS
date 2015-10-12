@@ -1,0 +1,35 @@
+\section{Cross-Section}\label{sec:results.xsection}
+
+In this section, the calculations leading up to the cross-section measurement of the $\pi^0$ are described in detail. The number of particles detected in any apparatus in photoproduction, $\Upsilon$, can be described as,
+\begin{equation}\label{eq:xsection1}
+\Upsilon(E_\gamma) = \sigma(E_\gamma) \left(\frac{F(E_\gamma) \rho_{target}\ell_{target}N_A}{A_{target}}\right)\eta(E_\gamma)\epsilon
+\end{equation}
+where $\rho_{target}$, $\ell_{target}$ and $A_{target}$ are the target density, length and atomic weight respectively, $N_A$ is Avogadro's number. The quantities $\sigma(E_\gamma)$, $F(E_\gamma)$, $\eta(E_\gamma)$ are the cross-section for the particle to be produced, the number of photons incident on the target, and the detector acceptance at beam energy $E_\gamma$. The factor $\epsilon$ is the total efficiency of detecting the particle, sometimes also referred to as normalization. For this analysis $\epsilon$ was derived independently of any cross-section, see Sec.~\ref{sec:results.normalization}
+
+If the particle of interest decays into daughters, i.e. $P_{mother}\rightarrow P_{daughter_1} + +P_{daughter_2} + ...P_{daughter_N}$, then Eq.~\ref{eq:xsection1} must be normalized by the branching ratio of the decay $\Gamma_{P_{m}\rightarrow P_{d_1} + +P_{d_2} + ...P_{d_N}}$. For this analysis, the detected final state particles were proton, electron and positron with a missing photon. The electron, positron and missing photon are the daughter particles of the \piz. However the final state of this decay was a mixture of the \piz dalitz decay and the \piz two photon radiative decay with one photon converting into an electron-positron pair, see Sec~\ref{sec:intro.conversion}. Since the detected final state is a mixture of branching ratios, Eq.~\ref{eq:xsection1} must be normalized by the sum of the normalized branching ratios contributing
+\begin{equation}\label{eq:xsectionBR}
+ \frac{\Gamma}{\Gamma_{tot}} = \frac{\Gamma_{\pi^{0}\rightarrow e^{+}e^{-}\gamma}}{\Gamma_{tot}} + \frac{\Gamma_{\pi^{0}\rightarrow \gamma \gamma}}{\Gamma_{tot}},
+\end{equation}
+and the detector acceptance $\eta(E_\gamma)$ also becomes a mixture of the branching ratios.
+
+\begin{equation}\label{eq:xsectionACC}
+\eta(E_\gamma) = \eta_{\textrm{dalitz}} + \eta_{\textrm{conversion}}
+\end{equation}
+which is described in Sec.~\ref{sec:results.acceptance}
+
+The differential cross-section in the center-of-mass system of a particle can be obtained by differentiating eq.~\ref{eq:xsection1} with respect to the observables $\cos\theta$ and $\phi$, where $\cos\theta$ is the polar angular distribution and $\phi$ the azimuthal distribution. Since there are no physical observables with respect to $\phi$, we can rewrite Eq.~\ref{eq:xsection1} as,
+ 
+\begin{equation}\label{eq:xsection2}
+\frac{d\sigma}{d\cos\theta^{\pi^0}_{C.M.} d\phi} = \frac{1}{2\pi\Delta\cos\theta^{\pi^0}_{C.M.}} \frac{\Upsilon(E_\gamma,\cos\theta^{\pi^0}_{C.M.})}{\eta(E_\gamma,\cos\theta^{\pi^0}_{C.M.})\epsilon} \left(\frac{A_{target}}{F(E_\gamma) \rho_{target}\ell_{target}N_A}\right)\frac{1}{\Gamma}
+\end{equation}
+where $\Delta\cos\theta^{\pi^0}_{C.M.}$ is the width of each $\cos\theta^{\pi^0}_{C.M.}$ bin. In this analysis there were two bin widths used
+\begin{subequations}
+
+\begin{align}
+\Delta\cos\theta^{\pi^0}_{C.M.} = 0.09375 \qquad -1<\cos\theta^{\pi^0}_{C.M.}<0 \label{backbin} \\ \vspace{0.5mm}
+\Delta\cos\theta^{\pi^0}_{C.M.} = 0.03125 \qquad 0<\cos\theta^{\pi^0}_{C.M.}<1 \label{frontbin},
+\end{align}
+\end{subequations}
+in order to minimize statistical errors in the backward direction, Sec.~\ref{sec:results.staterrors}. The values of the constants used in eq.~\ref{eq:xsection2} can be found in Table~\ref{tab:targetspecs}.
+\input{tables/targetspecs.tex}
+

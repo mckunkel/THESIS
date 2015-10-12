@@ -1,0 +1,47 @@
+\section{\label{sec:data.variables}Description of Variables Used in Analysis}
+
+The variables discussed in this work are based on the values stored in the reconstructed \abbr{BOS} banks. Enumerated here are all the values used in this analysis. The structure of the data consists of any number of banks which have a three or four letter identifier with a \emph{sector number} which is just an index from one and not to be confused with the \abbr{CLAS} sectors. It does happen occasionally that the bank sector number corresponds to the \abbr{CLAS} sectors but not always. Each bank consists of a specific set of named variables. The list shows the $bank$ name, \abbr{BOS}-$sector$ number, $hit$ number and $variable$ named used in the \abbr{BOS} file: \bank{BANK}{sector}{hit}{variable}. A corresponding variable, as it is used in the equations of this work, follows in parentheses. The $hit$ number is usually zero for banks that occur only once for an event (e.g. the \abbr{HEAD} bank), while in other cases it is an integer ranging from 1 and denoted by $i$ (e.g. the \abbr{TAGR} bank) corresponding to a specific hit in the given \abbr{BOS}-sector or subsystem.
+
+It is important to note that the over-all trigger offset time ($\ttrigoffset$) is not known and varies from event to event. It must be subtracted from any timing calculation made, and this is usually done by considering only differences in time, for example $\ttof - \tst$.
+
+\begin{itemize}
+    \item Event ``Header'' Information
+    \begin{description}
+        \item[\bank{HEAD}{0}{0}{nrun}] The run number of the event. \g12 consists of run numbers from 56363 to 57323. Monte Carlo data is always stored as run number 10.
+        \item[\bank{HEAD}{0}{0}{nevent}] The event number which is an integer starting from 1.
+    \end{description}
+    \item \abbr{RF} Clock
+    \begin{description}
+        \item[\bank{CL01}{0}{0}{rf2}] ($\trf$) An \abbr{RF} time which sets the position of the 2.004 ns clock ticks with respect to the times reported by the subsystems, the tagger and start counter in particular.
+    \end{description}
+    \item Photon Tagger
+    \begin{description}
+        \item[\bank{TAGR}{0}{i}{stat}] The status flag of the \ith\ tagger hit which is an output of the reconstruction program. Only values of 7 (single good tagger hit) and 15 (good tagger hit among other good hits) are taken into consideration.
+        \item[\bank{TAGR}{0}{i}{t\_id}] The \abbr{TDC} paddle that triggered the \ith\ tagger hit.
+        \item[\bank{TAGR}{0}{i}{e\_id}] The ``logical energy paddle'' of the \ith\ tagger hit which runs from 1 to 767, see Sec.~\ref{sec:clas.tagr}, and defines the energy of the associated photon.
+        \item[\bank{TAGR}{0}{i}{ttag}] ($\ttag$) The time in nanoseconds when the photon crossed the center of the target according to the \abbr{TDC} measured for the \ith\ tagger hit. It is relative to all other times in the detector.
+        \item[\bank{TAGR}{0}{i}{tpho}] ($\ttagrf$) This is the \abbr{RF}-corrected version of the $\ttag$ variable. It is the time in nanoseconds that the photon crossed the center of the target according to the \ith\ tagger hit. The \abbr{RF} time ($\trf$) is used as a vernier to adjust $\ttag$ to the closest \abbr{RF} time ``bucket.'' The difference ($\ttag - \ttagrf$) is never more than $\pm 1.002$~ns.
+        \item[\bank{TAGR}{0}{i}{erg}] ($\ebeam$) This is the energy of the photon as determined by the logical energy paddle associated with the \ith\ tagger hit \emph{at the time of reconstruction}. This is subsequently superceeded by the energy obtained from the tagger energy corrections as discussed in Sec.~\ref{sec:data.calib.systems}.
+    \end{description}
+    \item Start Counter
+    \begin{description}
+        \item[\bank{STR}{1}{i}{id}] ($\mathtt{ID}_\mathtt{ST}$) Encoded sector and paddle number for the \ith\ start counter hit:
+        \[
+            \mathrm{sector} = \mathrm{floor}\left(\frac{\mathtt{ID}_\mathtt{ST}}{100}\right),
+        \]
+        \[
+            \mathrm{paddle} = 4 \times \left(\mathrm{sector} - 1\right) + \mathrm{floor}\left(\frac{\mathtt{ID}_\mathtt{ST}}{10}\right) \% 10
+        \]
+        where function ``floor'' returns only the integral part of the argument and ``\%'' is the modulus operator.
+        \item[\bank{STR}{1}{i}{st\_time}] ($\tst$) Time of the \ith\ start counter hit in nanoseconds:
+        \[
+            \tst = \Delta\tst + \ttrigoffset,
+        \]
+        where $\Delta\tst$ is the time the particle traveled from the vertex (the time of the track at the point of closest approach to the beam) to the start counter paddle, and where $\ttrigoffset$ is the over-all trigger offset time for the event.
+        \item[\bank{ST1}{0}{i}{adc\_1}] ($\adcst$) The raw \abbr{ADC} value of the \ith\ start counter hit associated with the \ith\ hit in the \abbr{STR} bank, \abbr{BOS}-sector 1.
+    \end{description}
+    %\item Reconstructed Tracks
+    %\begin{description}
+    %    \item[\bank{TDPL}{0}{i}{x}]
+    %\end{description}
+\end{itemize}

@@ -1,0 +1,36 @@
+\subsection{Particle Identification}\label{sec:analysis.pid}
+
+Lepton identification was based on conservation of mass. Once the data is skimmed according to Table~\ref{tab:skim.requirements}, all particles that were $\pi^+$, $\pi^-$, unknown with $q^+$ or unknown with $q^-$ were tentatively assigned to be electrons or positrons based on their charge. This meant that the mass term of the particle's 4-vector was set to be the mass of an electron instead of that of a pion. This technique works because the mass of the \piz (0.135~GeV) is less than the mass of $\pi^+$ or $\pi^-$ (0.139~GeV) and by laws of conservation of energy-momentum, a lighter particle cannot decay into heavier particle's.
+%To explain this effect, lets consider a particle A decaying into daughters B and C.
+%\begin{align}
+%A\rightarrow B+C
+%\end{align}
+%In the rest frame of A the 4-momentum transforms to  
+%\begin{align}
+%P_A\rightarrow (0,M_A), \nonumber \\
+%P_B\rightarrow (\overline{P}_B,E_B), \nonumber \\
+%P_C\rightarrow (\overline{P}_C,E_C),
+%\end{align}
+%where $\overline{P}_B$ and $\overline{P}_C$ are the 3-momentum of particles B and C respectively. Using conservation of 4-momentum and the property $P_i^2 = m_i^2$, $E_C$ can be calculated as;
+%\begin{align}\label{eq:piz.kinematics}
+%P_B^2 = (P_A - P_C)^2 \nonumber \\
+%M_B^2 = P_A^2 + P_C^2 - 2P_A\cdot P_C \nonumber \\
+%M_B^2 = M_A^2 + M_C^2 - 2M_AE_C \nonumber \\
+%E_C = \frac{M_A^2 + M_C^2 - M_B^2}{2M_A}.
+%\end{align}
+%For the case in which particle A is a \piz and the particles B and C are electron and positron which have equal mass eq.~\ref{eq:piz.kinematics} simplifies to 
+%\begin{align}\label{eq:piz.decay}
+%E_C = \frac{M_{\pi^0}^2}{2}.
+%\end{align}
+%The same procedure can be applied for particle B which would yield the same result as eq.~\ref{eq:piz.decay} with the interchange of the index $C\leftrightarrow B$. From eq.~\ref{eq:piz.decay} it can be seen that because 
+%\begin{align}\label{eq:piz.energy}
+%E_{C,B} = \sqrt{M_{C,B}^2 + \overline{P}_{C,B}^2} \nonumber
+%\end{align}
+%that
+%\begin{align}
+%M_{C,B} <  \frac{M_{\pi^0}^2}{2}, \nonumber
+%\end{align}
+%therefore \piz cannot decay into particles of heavier mass.
+
+For particles with higher masses that can decay into two-pions  or into \epem, such as $\eta,\ \omega$, etc., the \abbr{CC} and \abbr{EC} provide a $\frac{e^+e^-}{\pi^+\pi^-}$ rejection factor of $\approx 10^6$. The method to achieve this rejection factor was developed by Mike Wood and is based on using various cuts placed on the \abbr{CC} and \abbr{EC} measured quantities. This method was not used in this analysis, the $\gamma p \to  p \pi^0 \to p e^+e^-\gamma$ reaction provides insight into the validity of the method. The Mike Wood method of $\frac{e^+e^-}{\pi^+\pi^-}$ rejection factor is discussed in~\cite{clas.g12.note}.   
+

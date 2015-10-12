@@ -1,0 +1,62 @@
+\section{\label{sec:results.xi1530}\texorpdfstring{$\Xi^-$}{Xi-}(1530) Excitation Function}
+
+The measured yield for the first excited $\Xi^-$(1530) is shown in Figs.~\ref{fig:xi1530.yield} and \ref{fig:xi1530.yieldflux}. This resonance has two distict decay channels:
+
+\begin{singlespacing}\begin{align}
+    \gammaup \p \rightarrow & \ \Xi^{*-}(1530) \Kp \Kp \nonumber \\[-0.3em]
+        & \ \hookrightarrow \Xi^-(1320) \piup^0, \\[0.5em]
+    \gammaup \p \rightarrow & \ \Xi^{*-}(1530) \Kp \Kp \nonumber \\[-0.3em]
+        & \ \hookrightarrow \Xi^0(1315) \piup^-.
+\end{align}\end{singlespacing}
+Simulation of the $\Xi^-$(1530) consists of both of these decays combined according to the isospin of the decay products ($\Xi\piup$). The subsequent decay of the ground state $\Xi$'s to a $\Lambda$, and ultimately to a proton, are all considered kinematically equivalent in this estimation. There are two cascades in each of the octet and decuplet (see Fig.~\ref{fig:baryons.eightfoldway} on page~\pageref{fig:baryons.eightfoldway}) and so the $\Xi$'s have total isospin $\frac{1}{2}$. The $I_3$ component of the $\Xi^-$ is ${}^-\frac{1}{2}$ while for the $\Xi^0$ it is $\frac{1}{2}$. Using the notation $\ket{I\ I_3}$:
+\begin{align}
+    \Xi^{*-}(1530) & = \ket{\tfrac{1}{2}\ {}^-\tfrac{1}{2}}, \nonumber \\
+    \Xi^{-}(1320) & = \ket{\tfrac{1}{2}\ {}^-\tfrac{1}{2}}, \nonumber \\
+    \Xi^{0}(1315) & = \ket{\tfrac{1}{2}\ {}^+\tfrac{1}{2}},
+\end{align}
+and the pions have isospin of 1:
+\begin{align}
+    \piup^0 & = \ket{1\ 0}, \nonumber \\
+    \piup^- & = \ket{1\ {}^-1}.
+\end{align}
+Using the Clebsch-Gordon coefficients\cite{pdg} yields the relative amplitudes for each possible total isospin of the two decay modes:
+\begin{align}
+    \Xi^{-}\piup^0 & = \ket{\tfrac{1}{2}\ {}^-\tfrac{1}{2}}\ket{1\ 0}
+    = \sqrt{\frac{2}{3}}\ket{\tfrac{3}{2}\ {}^-\tfrac{1}{2}}
+    +   \sqrt{\frac{1}{3}}\ket{\tfrac{1}{2}\ {}^-\tfrac{1}{2}}, \\
+    \Xi^{0}\piup^- & = \ket{\tfrac{1}{2}\ {}^+\tfrac{1}{2}}\ket{1\ {}^-1}
+    = \sqrt{\frac{1}{3}}\ket{\tfrac{3}{2}\ {}^-\tfrac{1}{2}}
+    -   \sqrt{\frac{2}{3}}\ket{\tfrac{1}{2}\ {}^-\tfrac{1}{2}}.
+\end{align}
+Since the isospin of the $\Xi^{*-}$(1530) is $\ket{\tfrac{1}{2}\ {}^-\tfrac{1}{2}}$, the relative braching ratio to these decay channels is
+\begin{equation}
+    \frac{\Gamma(\Xi^{*-}\rightarrow\Xi^{-}\piup^0)}{\Gamma(\Xi^{*-}\rightarrow\Xi^{0}\piup^-)} = \frac{1}{2}.
+\end{equation}
+The data shown in Figs.~\ref{fig:simcomp.xi1530} and \ref{fig:xi1530.accept} consist of both channels combined via a weighted ($2{\colon\negthinspace} 1$) average. The comparison of the simulation to the data, via sideband substraction of the $\Xi^-$(1530), shows less agreement than with the ground state $\Xi^-$(1320), but it is still within a systematic error of 3\%. Finally, the excitation function for the $\Xi^-$(1530), with and without the time-of-flight energy deposit cut and proton requirement, is shown in Fig.~\ref{fig:xim1530.xfn}. This includes the scaling factors discussed in the previous sections.
+
+\begin{figure}[bhp]\centering
+    \includegraphics[width=0.98\columnwidth]{\figures/mmkk/xi1530_yield.eps}
+    \caption[\texorpdfstring{$\Xi^-$}{Xi-}(1530) Measured Yield]{\label{fig:xi1530.yield}The measured yield of the ground state $\Xi^-$(1530). Shown are the data with selections described in Tables~\ref{tab:vtime.cuts} and \ref{tab:kpkp.cuts} with and without the \abbr{TOF} energy deposit cut. The plot on the right has the added requirement of an in-time proton.}
+\end{figure}
+
+\begin{figure}[bhpt]\centering
+    \includegraphics[width=0.98\columnwidth]{\figures/mmkk/xi1530_yield_flux.eps}
+    \caption[\texorpdfstring{$\Xi^-$}{Xi-}(1530) Measured Yield]{\label{fig:xi1530.yieldflux}The flux-corrected measured yield ($Y$ from Eq.~\ref{eqn:fluxcorryield}) of the ground state $\Xi^-$(1530). Shown are the data with selections described in Tables~\ref{tab:vtime.cuts} and \ref{tab:kpkp.cuts} with and without the \abbr{TOF} energy deposit cut. The plot on the right has the added requirement of an in-time proton.}
+\end{figure}
+
+\begin{figure}[bhpt]\centering
+    \includegraphics[width=\columnwidth]{\figures/analysis/xi1530_sim_comparison.eps}
+    \caption[Simulation / Data Comparion \texorpdfstring{$\Xi^-$}{Xi-}(1530)]{\label{fig:simcomp.xi1530}Comparison of simulation of the $\Xi^-$(1530) to the background-subtracted data. From left to right, top to bottom: $-t$ from the high momentum $\Kp$, cosine of the center-of-mass polar-angle ($\theta_\mathtt{CM}$) of the low momentum $\Kp$, momenta and missing mass of each $\Kp$ and the two combined ($\Kp_\mathrm{1\&2}$) and the invariant mass of $\Kp\Kp$.}
+\end{figure}
+
+\begin{figure}[bhpt]\centering
+    \includegraphics[width=0.98\columnwidth]{\figures/mmkk/xi1530_accept.eps}
+    \caption[\texorpdfstring{$\Xi^{*-}$}{Xi*-}(1530) Acceptance]{\label{fig:xi1530.accept}The acceptance for the $\Xi^{*-}$(1530). Shown are the data with selections described in Tables~\ref{tab:vtime.cuts} and \ref{tab:kpkp.cuts} with and without the \abbr{TOF} energy deposit cut. The plot on the right has the added requirement of an in-time proton.}
+\end{figure}
+
+\begin{figure}[bhpt]\begin{center}
+    \includegraphics[width=0.98\columnwidth]{\figures/analysis/xi1530_xfn_twoup.eps}
+    \caption[$\Xi^-$(1530) Excitation Function]{\label{fig:xim1530.xfn}Excitation function for the $\Xi^-$(1530). Shown are the data with selections described in Tables~\ref{tab:vtime.cuts} and \ref{tab:kpkp.cuts} with and without the \abbr{TOF} energy deposit cut. The plot on the right has the added requirement of an in-time proton.}
+\end{center}\end{figure}
+
+\clearpage

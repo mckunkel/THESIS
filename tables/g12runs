@@ -1,0 +1,803 @@
+#!/usr/bin/env python
+
+from optparse import OptionParser
+
+usage = '''\
+usage: %prog [options]
+
+example to get all good data runs:
+    %prog -t prod -t single -x calib'''
+parser = OptionParser(usage = usage)
+
+parser.add_option("-r", "--range", dest="range",
+    default='56363:57323',
+    help="range of runs to print out (inclusive from:to) To get the six-digit run numbers, use this range: 557312:557316. default: %default",
+    type='string')
+
+parser.add_option("-c", "--current", dest="current",
+    default='0:90',
+    help="range of currents to print out (inclusive from:to). examples: 40:80, 20:35 default: %default",
+    type='string')
+
+parser.add_option("-t", "--run-type", dest="runtype",
+    help='Type of runs to print out. can be any of the following, and may be specified more than once: prod single calib cc dc norm pass1 Note: calib includes all norm runs. Use prod, single and calib to get all runs. default: prod',
+    action = 'append', type='string')
+
+parser.add_option("-x", "--exclude-type", dest="exclude",
+    help='excludes types from being printed out. may be specified more than once.',
+    action = 'append', type='string')
+
+parser.add_option("-e", "--extra-info", dest="extrainfo",
+    action='store_true', default=False,
+    help='print extra information for each run.')
+
+parser.add_option("-m", "--max-ind", dest="maxind",
+    action='store_true', default=False,
+    help='print maximum index for each run printed.')
+    
+parser.add_option("-n", "--nfiles", dest="nfiles",
+    action='store_true', default=False,
+    help='print number of files for each run printed.')
+
+parser.add_option("-s", "--set", dest="set",
+    default='all',
+    help='print runs which correspond to one (or all by default) of ten groups: 1 - 10. These groups represent approximately 10% of the whole run period.')
+
+(options, args) = parser.parse_args()
+
+if ':' in options.range:
+    rmin, rmax = [int(x) for x in options.range.split(':')]
+else:
+    rmin = int(options.range)
+    rmax = rmin
+cmin, cmax = [float(x) for x in options.current.split(':')]
+if options.runtype:
+    rtype  = options.runtype
+else:
+    rtype  = ['prod']
+etype      = options.exclude
+extra      = options.extrainfo
+maxind     = options.maxind
+nfiles     = options.nfiles
+
+set_list = [
+
+    ( 56363 , 57323 ),  # all runs
+
+    ( 56363 , 56458 ),  # set 1
+    ( 56459 , 56554 ),  # 2
+    ( 56555 , 56650 ),  # 3 ...
+    ( 56651 , 56746 ),
+    ( 56747 , 56842 ),
+    ( 56843 , 56938 ),
+    ( 56939 , 57034 ),
+    ( 57035 , 57130 ),
+    ( 57131 , 57226 ),
+    ( 57227 , 57323 )
+]
+
+if options.set == 'all':
+    set = set_list[0]
+else:
+    set = set_list[int(options.set)]
+
+#print 'run range:', rmin, rmax
+#print 'current range:', cmin, cmax
+#print 'run type:', rtype
+#print 'exclude type:', etype
+#print 'print extra:', extra
+#print 'maximum index:', maxind
+#print 'number of files:', nfiles
+#print 'set:', set
+
+def number_of_files(nstr):
+    if nstr[0] == 'A':
+        return str(1 + int(nstr[1:]))
+    elif nstr[0] == 'B':
+        return str(101 + int(nstr[1:]))
+
+def main():
+    runlist = run_list()
+    for r in runlist:
+        run_number = int(r[0])
+        p = False
+        if rmin <= run_number and run_number <= rmax:
+            if set[0] <= run_number and run_number <= set[1]:
+                current = float(r[2])
+                if cmin <= current and current <= cmax:
+                    for rt in rtype:
+                        if rt in r[3:]:
+                            p = True
+                    if etype:
+                        for et in etype:
+                            if et in r[3:]:
+                                p = False
+        if p:
+            print r[0],
+            if maxind:
+                print r[1],
+            if nfiles:
+                print number_of_files(r[1]),
+            if extra:
+                for i in r[2:]:
+                    print i,
+            print ''
+
+def run_list():
+    runlist = '''\
+56363 A31 20    prod
+56365 A13 30    prod
+56369 A29 30    prod pass1
+56384 A01  5    prod pass1
+56386 A18 20    prod pass1
+56397 A00 0.05  calib norm
+56401 A12 50    prod pass1
+56403 A20 70    prod pass1
+56404 A19 60    prod pass1
+56405 A20 50    prod pass1
+56406 A17 40    prod pass1
+56408 A23 80    prod pass1
+56410 A25 90    prod pass1
+56420 A01  5    prod pass1
+56421 A01  5    prod pass1
+56422 A29  5    prod pass1
+56435 A14  5    prod
+56436 A16 15    prod
+56441 A21 35    prod 3e-4radiator pass1
+56442 A10 30    prod 1e-4radiator pass1
+56443 A08 20    prod 1e-4radiator pass1
+56445 A41 60    prod
+56446 A04 60    prod pass1
+56447 A40 60    prod
+56448 A41 60    prod pass1
+56449 A42 60    prod
+56450 A41 60    prod
+56453 A42 60    prod
+56454 A42 60    prod
+56455 A46 60    prod
+56456 A20 60    prod pass1
+56457 A03 60    prod pass1
+56458 A40 60    prod pass1
+56459 A32 60    prod
+56460 B07 70    prod MORA:T1-25 pass1
+56461 B13 70    prod
+56462 B08 70    prod
+56465 A34 70    prod
+56467 B16 70    prod
+56468 A25 70    prod
+56469 B07 70    prod pass1
+56470 B09 70    prod
+56471 B12 70    prod pass1
+56472 B10 70    prod
+56475 A04 10    calib dc align:B=0
+56476 A33 24    single
+56478 B08 70    prod
+56479 B08 70    prod
+56480 B08 70    prod
+56481 B07 70    prod
+56482 A81 70    prod pass1
+56483 A60 70    prod
+56485 B26 70    prod
+56486 B24 70    prod pass1
+56487 B24 70    prod pass1
+56489 B25 70    prod
+56490 B25 70    prod
+56499 A88 70    prod pass1
+56501 B02 60    prod pass1
+56502 A38 24    single
+56503 B06 57    prod
+56504 B02 56    prod
+56505 A18 40    prod pass1
+56506 A37 40    prod pass1
+56508 B02 60    prod
+56509 B06 60    prod
+56510 A93 60    prod
+56511 A00 0.05  calib norm TLeft
+56512 A00 0.05  calib norm TRight
+56513 B02 60    prod
+56514 B01 60    prod
+56515 A61 60    prod
+56516 B02 60    prod
+56517 A99 60    prod
+56519 B03 60    prod MORA:T1-19
+56520 A82 24    single
+56521 B03 60    prod
+56522 B03 60    prod pass1
+56523 B04 60    prod pass1
+56524 A79 60    prod pass1
+56525 B03 60    prod
+56526 B03 60    prod
+56527 B04 60    prod
+56528 B04 60    prod
+56529 A24 60    prod pass1
+56530 A05 60    prod pass1
+56531 A50 60    prod pass1
+56532 B03 60    prod
+56533 B05 60    prod pass1
+56534 B03 60    prod
+56535 A09 60    prod pass1
+56536 B03 60    prod pass1
+56537 B03 60    prod
+56538 B02 60    prod
+56539 B10 60    prod
+56540 B28 60    prod
+56541 B05 60    prod pass1
+56542 A81 60    prod pass1
+56544 A74 24    single
+56545 B03 60    prod
+56546 B06 60    prod
+56547 B01 60    prod pass1
+56548 B08 60    prod
+56549 B04 60    prod
+56550 A88 60    prod
+56555 A18 60    prod
+56556 A70 60    prod pass1
+56559 A37 24    single
+56561 B07 60    prod pass1
+56562 B09 60    prod
+56563 B08 60    prod
+56564 A46 60    prod pass1
+56573 B08 60    prod pass1
+56574 A07 60    prod pass1
+56575 B09 60    prod
+56576 B05 60    prod
+56577 B05 60    prod
+56578 A32 60    prod pass1
+56579 A61 60    prod
+56580 A05 60    prod
+56581 B05 60    prod
+56582 A87 60    prod
+56583 A29 60    prod pass1
+56584 A07 0.05  calib norm
+56585 A34 24    single pass1
+56586 B05 60    prod pass1
+56587 A58 60    prod
+56588 B23 60    prod pass1
+56589 A17 60    prod pass1
+56590 B05 60    prod
+56591 B04 60    prod pass1
+56592 B03 60    prod pass1
+56593 A20 60    prod pass1
+56605 A39 60    prod
+56608 A07 60    prod pass1
+56609 B11 60    prod pass1
+56610 B04 60    prod pass1
+56611 A58 60    prod
+56612 B07 60    prod pass1
+56614 A18 60    prod pass1
+56615 B09 60    prod
+56616 B12 60    prod
+56617 A43 60    prod
+56618 A26 60    prod pass1
+56619 A08 24    single
+56620 B04 60    prod pass1
+56621 A49 60    prod pass1
+56622 B04 60    prod
+56623 B04 60    prod
+56624 B04 60    prod
+56625 B05 60    prod pass1
+56626 B10 60    prod pass1
+56627 B04 60    prod pass1
+56628 A83 60    prod pass1
+56630 A21 60    prod pass1
+56631 A64 60    prod
+56632 B07 60    prod pass1
+56633 B04 60    prod pass1
+56634 B05 60    prod
+56635 A10 60    prod pass1
+56636 A66 60    prod
+56637 A59 24    single
+56638 B06 60    prod pass1
+56639 B05 60    prod
+56640 B03 60    prod
+56641 B02 60    prod pass1
+56642 B03 60    prod
+56643 A84 60    prod
+56644 B03 60    prod
+56646 A77 60    prod pass1
+56653 B15 60    prod pass1
+56654 B17 60    prod
+56655 B25 60    prod pass1
+56656 A86 60    prod pass1
+56660 A68 60    prod pass1
+56661 A13 60    prod pass1
+56663 A31 24    single
+56664 A99 24    single
+56665 A26 60    prod pass1
+56666 A47 60    prod pass1
+56667 A36 60    prod pass1
+56668 B17 60    prod
+56669 B16 60    prod pass1
+56670 A28 60    prod pass1
+56673 B02 60    prod
+56674 B16 60    prod
+56675 A34 60    prod pass1
+56679 B08 60    prod pass1
+56680 B16 60    prod pass1
+56681 A26 60    prod pass1
+56682 A05 0.05  calib norm radiator4
+56683 B14 60    prod
+56685 B17 60    prod pass1
+56686 B17 60    prod pass1
+56687 B21 60    prod
+56688 B20 60    prod pass1
+56689 B23 60    prod
+56690 B46 60    prod pass1
+56691 B22 60    prod pass1
+56692 B19 60    prod
+56693 B20 60    prod pass1
+56694 B20 60    prod
+56695 B20 60    prod
+56696 A54 60    prod pass1
+56697 A72 24    single
+56700 B17 60    prod
+56701 B17 60    prod pass1
+56702 B22 60    prod
+56703 B30 60    prod
+56704 B17 60    prod
+56705 B17 60    prod
+56706 B17 60    prod
+56707 B17 60    prod
+56708 A77 60    prod
+56710 B17 60    prod
+56711 B18 60    prod pass1
+56712 B16 60    prod
+56713 B17 60    prod
+56714 B19 60    prod
+56715 B23 60    prod pass1
+56716 B17 60    prod pass1
+56717 B24 60    prod
+56718 B17 60    prod
+56719 B18 60    prod pass1
+56720 A70 60    prod pass1
+56721 B12 60    prod pass1
+56722 B16 60    prod pass1
+56723 A36 60    prod pass1
+56724 B16 60    prod
+56725 A80 24    single
+56726 B17 60    prod
+56727 B17 60    prod
+56728 B16 60    prod pass1
+56729 B20 60    prod
+56730 B21 60    prod
+56731 B19 60    prod pass1
+56732 B22 60    prod
+56733 B20 60    prod pass1
+56734 B15 60    prod pass1
+56735 B09 60    prod pass1
+56736 B15 60    prod pass1
+56737 B16 60    prod
+56738 A90 60    prod
+56739 B22 60    prod pass1
+56740 B21 60    prod
+56741 B27 60    prod pass1
+56742 B21 60    prod
+56743 B23 60    prod pass1
+56744 B16 60    prod
+56747 A85 24    single
+56748 A64 60    prod pass1
+56749 B18 60    prod pass1
+56750 B17 60    prod
+56751 B19 65    prod
+56752 B21 65    prod pass1
+56753 B20 65    prod
+56754 B20 65    prod pass1
+56755 B21 65    prod
+56756 B29 65    prod
+56757 B06 65    prod
+56758 B23 65    prod
+56759 B20 65    prod
+56760 B20 65    prod pass1
+56761 B24 65    prod
+56762 B20 65    prod
+56763 B25 65    prod
+56764 A39 65    prod
+56765 B06 65    prod
+56766 B22 65    prod
+56767 B26 65    prod
+56768 B21 65    prod
+56769 A85 24    single
+56770 A12 65    prod pass1
+56771 A12 65    prod pass1
+56772 A12 65    prod
+56774 B26 65    prod
+56775 B21 65    prod
+56776 B20 65    prod
+56777 B20 65    prod
+56778 A86 65    prod
+56780 B21 65    prod
+56781 B29 65    prod pass1
+56782 B28 65    prod
+56783 B27 65    prod pass1
+56784 A89 65    prod
+56787 B21 65    prod pass1
+56788 B21 65    prod pass1
+56790 A05 0.05  calib norm
+56791 B22 65    prod
+56792 A11 65    prod
+56793 B21 65    prod
+56794 A31 65    prod pass1
+56798 B21 65    prod pass1
+56799 B21 65    prod
+56800 B29 65    prod
+56801 B09 65    prod
+56802 B08 65    prod pass1
+56804 A89 24    single
+56805 B21 65    prod
+56806 B21 65    prod pass1
+56807 B21 65    prod pass1
+56808 B21 65    prod
+56809 B21 65    prod pass1
+56810 B21 65    prod pass1
+56811 A27 65    prod pass1
+56812 B26 65    prod pass1
+56813 B23 65    prod
+56814 B22 65    prod
+56815 B07 65    prod
+56821 B26 65    prod
+56822 B21 65    prod
+56823 B22 65    prod
+56824 B21 65    prod
+56825 B13 65    prod
+56826 B21 65    prod
+56827 A43 65    prod
+56831 B30 65    prod pass1
+56832 B46 65    prod
+56833 B33 65    prod
+56834 A61 65    prod
+56835 A63 24 single
+56838 B25 65    prod pass1
+56839 A56 65    prod pass1
+56841 B20 65    prod
+56842 B21 65    prod pass1
+56843 B20 65    prod
+56844 B19 65    prod
+56845 A08 65    prod pass1
+56849 A92 65    prod pass1
+56853 B21 65    prod
+56854 A43 65    prod pass1
+56855 B19 65    prod
+56856 B21 65    prod
+56857 B20 65    prod pass1
+56858 B21 65    prod pass1
+56859 B20 65    prod pass1
+56860 B20 65    prod
+56861 B28 65    prod
+56862 A52 65    prod
+56864 A49 65    prod
+56865 B17 60    prod
+56866 B08 60    prod
+56869 A10  5    single
+56870 A13 65    prod pass1
+56874 B17 60    prod
+56875 B13 60    prod
+56877 B12 60    prod
+56879 A60 60    prod
+56897 A46 60    prod pass1
+56898 A91 60    prod
+56899 B21 65    prod
+56900 B19 60    prod
+56901 B18 60    prod pass1
+56902 B18 60    prod pass1
+56903 A55 60    prod pass1
+56904 B18 60    prod
+56905 B21 60    prod pass1
+56906 B18 60    prod pass1
+56907 B22 60    prod
+56908 B18 60    prod
+56910 A02 35    single
+56911 A01 30    single
+56912 A03 25    single
+56913 A42 24    single
+56914 B16 60    prod
+56915 B17 60    prod
+56916 B24 60    prod
+56917 B14 60    prod
+56918 B17 60    prod
+56919 B02 60    prod
+56921 B17 60    prod
+56922 B33 60    prod
+56923 A11 65    prod
+56924 A12 70    prod
+56925 A14 80    prod
+56926 A08 60    prod
+56927 B15 60    prod
+56928 B16 60    prod
+56929 B17 60    prod
+56930 A57 60    prod
+56931 A05 0.05  calib norm
+56932 A03 60    prod
+56933 A05 24    single
+56934 A69 24    single
+56935 B17 60    prod
+56936 B16 60    prod
+56937 B18 60    prod
+56938 B19 60    prod
+56939 B16 60    prod
+56940 B17 60    prod pass1
+56947 A07 0.05  calib norm
+56948 B06 60    prod
+56949 B25 60    prod
+56950 A57 60    prod
+56951 B23 60    prod
+56952 B22 60    prod pass1
+56953 A75 60    prod
+56954 B22 60    prod
+56955 B22 60    prod
+56956 A48 60    prod
+56958 A17 60    prod
+56960 B24 60    prod pass1
+56961 B23 60    prod pass1
+56962 B23 60    prod pass1
+56963 B22 60    prod pass1
+56964 B34 60    prod
+56965 B23 60    prod
+56966 B28 60    prod pass1
+56967 B25 60    prod
+56968 B24 60    prod pass1
+56969 B24 60    prod
+56970 B28 60    prod
+56971 B37 60    prod
+56972 A69 60    prod pass1
+56973 B24 60    prod pass1
+56974 B25 60    prod pass1
+56975 A64 60    prod pass1
+56977 B24 60    prod pass1
+56978 B26 60    prod
+56979 B06 60    prod
+56980 B24 60    prod
+56981 A09 24    single noL2
+56982 A02 24    single noL2
+56983 A03 24    single noL2
+56985 A09 15    single noL2
+56986 A11 15    single
+56989 A41 24    single
+56992 A03 60    prod small
+56993 B24 60    prod
+56994 A18 60    prod
+56996 B22 60    prod
+56997 B24 60    prod
+56998 B24 60    prod
+56999 B23 60    prod
+57000 B24 60    prod
+57001 A29 60    prod
+57002 B09 60    prod
+57003 B24 60    prod
+57004 B24 60    prod
+57005 B24 60    prod
+57006 B22 60    prod
+57008 B23 60    prod
+57009 B25 60    prod
+57010 B23 60    prod
+57011 B24 60    prod
+57012 B24 60    prod
+57013 B24 60    prod
+57014 B04 60    prod
+57015 B24 60    prod
+57016 A82 60    prod
+57017 A48 60    prod
+57021 A07 60    prod
+57022 A54 60    prod
+57023 A23 60    prod
+57025 A65 60    prod
+57026 B24 60    prod
+57027 A70 60    prod
+57028 A24 24    single
+57030 B24 60    prod
+57031 B24 60    prod
+57032 B23 60    prod
+57036 B27 60    prod
+57037 B44 60    prod
+57038 B24 60    prod
+57039 A69 60    prod
+57061 A76 24    single
+57062 B18 60    prod
+57063 B16 60    prod
+57064 B36 60    prod
+57065 B16 60    prod
+57066 B15 60    prod
+57067 A22 60    prod
+57068 B15 60    prod
+57069 B03 60    prod
+57071 B18 60    prod
+57072 B20 60    prod
+57073 A12 60    prod
+57075 B26 60    prod
+57076 A33 60    prod
+57077 B18 60    prod
+57078 B17 60    prod
+57079 B19 60    prod
+57080 A09 60    prod
+57094 A76 24    single shorterADCgates_ST
+57095 B21 60    prod
+57096 B18 60    prod
+57097 A72 60    prod
+57100 B24 60    prod
+57101 B18 60    prod
+57102 B21 60    prod
+57103 A60 60    prod
+57106 B19 60    prod
+57107 B18 60    prod
+57108 A59 60    prod
+57114 B19 60    prod
+57115 A09 60    prod
+57116 B17 60    prod
+57117 B16 60    prod
+57118 B17 60    prod
+57119 B18 60    prod
+57120 B17 60    prod
+57121 B17 60    prod
+57122 B17 60    prod
+57123 B17 60    prod
+57124 B13 60    prod
+57125 B17 60    prod
+57126 B18 60    prod
+57127 B18 60    prod
+57128 B42 60    prod
+57129 A76 24    single
+57130 B18 60    prod
+57131 A85 60    prod
+57132 B16 60    prod
+57133 B15 60    prod
+57134 A56 60    prod
+57135 A18 60    prod
+57136 A17 60    prod
+57137 B16 60    prod
+57138 B16 60    prod
+57139 B22 60    prod
+57140 B17 60    prod
+57141 B17 60    prod
+57142 B16 60    prod
+57143 B24 60    prod
+57144 B20 60    prod
+57145 B17 60    prod
+57146 A51 60    prod
+57147 A49 60    prod
+57148 B24 60    prod
+57149 A49 60    prod
+57150 B15 60    prod
+57151 B14 60    prod
+57152 B10 60    prod
+57155 A50 24    single
+57156 A06 24    single
+57159 B16 60    prod
+57160 B15 60    prod
+57161 B16 60    prod
+57162 B16 60    prod
+57163 A97 60    prod
+57164 B17 60    prod
+57165 B11 60    prod
+57166 A76 60    prod
+57167 B19 60    prod
+57168 B16 60    prod
+57169 A05 0.05  calib norm
+57170 B19 60    prod
+57171 B16 60    prod
+57172 B18 60    prod
+57173 A12 60    prod
+57174 B18 60    prod
+57175 B21 60    prod
+57176 B16 60    prod
+57177 A38 60    prod
+57178 A34 60    prod
+57179 B24 60    prod
+57180 B21 60    prod
+57181 B18 60    prod
+57182 B17 60    prod
+57183 A04 60    prod
+57184 B17 60    prod
+57185 B17 60    prod
+57189 B18 60    prod
+57190 B16 60    prod
+57191 B18 60    prod
+57192 B19 60    prod
+57193 B17 60    prod
+57194 B19 60    prod
+57195 B22 60    prod
+57196 B19 60    prod
+57197 B17 60    prod
+57198 B39 60    prod
+57199 B17 60    prod
+57200 B17 60    prod
+57201 B17 60    prod
+57202 B17 60    prod
+57203 B17 60    prod
+57204 B25 60    prod
+57205 B04 60    prod
+57206 B17 60    prod
+57207 B18 60    prod
+57208 B17 60    prod
+57209 B19 60    prod
+57210 A37 60    prod
+57211 B16 60    prod
+57212 B15 60    prod
+57213 B17 60    prod
+57214 B18 60    prod
+57215 B17 60    prod
+57216 B17 60    prod
+57217 B21 60    prod
+57218 B20 60    prod
+57219 B18 60    prod
+57220 B23 60    prod
+57221 A81 60    prod
+57222 A93 60    prod
+57223 B17 60    prod
+57224 B18 60    prod
+57225 B17 60    prod
+57226 B17 60    prod
+57227 B17 60    prod
+57228 B17 60    prod
+57229 A67 60    prod
+57233 B18 60    prod
+57234 B17 60    prod
+57235 B17 60    prod
+57236 A94 60    prod
+57237 A32 24    single
+57238 A58 24    single
+57239 A04 24    calib single empty
+57241 A09 80    calib empty
+57248 A05 0.05  calib norm
+57249 B19 60    prod
+57250 B18 60    prod
+57251 B18 60    prod
+57252 B22 60    prod
+57253 B19 60    prod
+57255 A99 60    prod
+57256 A49 60    prod
+57257 B20 60    prod
+57258 A62 60    prod
+57260 B19 60    prod
+57261 B19 60    prod
+57262 B19 60    prod
+57263 A97 60    prod
+57264 B20 60    prod
+57265 A09 60    prod
+57266 A33 60    prod
+57267 A89 60    prod
+57268 B18 60    prod
+57270 A45 60    prod
+57271 B18 60    prod
+57272 B19 60    prod
+57273 B19 60    prod
+57274 B08 60    prod
+57275 B19 60    prod
+57276 B18 60    prod
+57277 B19 60    prod
+57278 B18 60    prod
+57279 B18 60    prod
+57280 A71 60    prod
+57281 B27 60    prod
+57282 B18 60    prod
+57283 A65 60    prod
+57284 A11 60    prod
+57285 B19 60    prod
+57286 B19 60    prod
+57287 B16 60    prod
+57288 B17 60    prod
+57290 B16 60    prod
+57291 B38 60    prod
+57293 B27 60    prod
+57294 B17 60    prod
+57295 A53 60    prod
+57296 B21 60    prod
+57297 B19 60    prod
+57298 B16 60    prod
+57299 A33 60    prod
+57300 B16 60    prod
+57301 B39 60    prod
+57302 B25 60    prod
+57303 B24 60    prod
+57304 A39 60    prod
+57305 B16 60    prod
+57306 B15 60    prod
+57307 B17 60    prod
+57308 B30 60    prod
+57309 B19 60    prod
+57310 B17 60    prod
+57311 B38 60    prod
+57312 B26 60    prod
+57317 A95 60    prod'''
+    return [x.split() for x in runlist.split('\n')]
+
+if __name__ == "__main__":
+    main()

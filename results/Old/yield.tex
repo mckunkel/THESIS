@@ -1,0 +1,58 @@
+\section{\label{sec:results.xi1320}\texorpdfstring{$\Xi^-$}{Xi-}(1320) Excitation Function Calculation}
+
+In this section, the calculations leading up to the excitation function of the $\Xi^-$(1320) are described in detail. These techniques are then used in the following sections, with certain modifications as discussed, to obtain the excitation function for the $\Xi^-$(1530) and the total cross section upper limits for the higher cascade and iso-exotic states. The process starts with the determination of the number events seen. This ``measured yield'' is then divided by the photon flux and the length and material of the target are taken into account to obtain the ``flux-corrected measured yield.'' This is presented as a detected cross section (detected $\sigma$) in units of picobarns and is the last step before applying any model to the calculation. The resonance-production model used in the simulation that produced the acceptance for each reaction introduces the largest systematic error and this is investigated in the following sections. The flux-corrected measured yield is then divided by the acceptance to obtain the final excitation function.
+
+\subsection{\label{sec:results.xi1320.yield}Measured Yield}
+
+The measured number of $\Xi^-$(1320) events were determined by fitting a 3\textsuperscript{rd} order polynomial background combined with a Gaussian distribution. For each state and beam-photon energy bin, the number of events in the peak ($N$) was obtained from taking the integral of the background-subtracted histogram, two standard deviations on either side of the mean. The number of background events ($B$) in the $\Kp\Kp$ missing mass was calculated as the integral of the polynomial part of the total fit over the same range, and played a large part in determining the statistical error of the measured yield:
+\begin{equation}
+    \delta N = \sqrt{N + B}.
+\end{equation}
+The systematic error introduced due to the fact that the peak and background shapes are unknown is negligable to that of the simulation model used obtain the acceptance, as discussed in the following section, and therefore is ignored.
+
+An example of the fit is shown in Fig.~\ref{fig:yield.determin}. This fit is done for each photon energy bin in the subsequent yield and excitation function plots. Note that a sideband subtraction is inadequate here since it will consistently under or over estimate the number of events depending on the sign of the 2\textsuperscript{nd} derivative of the background shape. However, the sum of the sidebands on either side of the ground state $\Xi^-$(1320), shown in Fig.~\ref{fig:mmkk.sideband}, is used as a cross-check for the validity of the yield measurements. Since the events in the sideband are essentially random, the flux-corrected yield is expected to be smooth over the full energy range.
+
+\begin{figure}[bh]\centering
+\begin{minipage}{0.49\linewidth}\centering
+    \includegraphics[width=0.9\columnwidth]{\figures/mmkk/xi1320_fit.eps}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}\centering
+    \includegraphics[width=0.9\columnwidth]{\figures/mmkk/xi1320_fit_adjusted.eps}
+\end{minipage}
+    \caption[Yield Determination]{\label{fig:yield.determin}The ground state $\Xi^-$(1320) peak from the data in Fig.~\ref{fig:mmkk.c.vtime.doca.vtx.vtkk} is fitted with a 3\textsuperscript{rd} order polynomial plus a Gaussian on the range from 1.2 to 1.45~GeV. The polynomial is subtracted from the histogram on the right.}
+\end{figure}
+
+\begin{figure}[bh]\centering
+    \includegraphics[width=0.6\columnwidth]{\figures/mmkk/xi1320_sideband.eps}
+    \caption[\texorpdfstring{$\Xi^-$}{Xi-}(1320) Sideband Yield]{\label{fig:mmkk.sideband}The measured sideband yield around the ground state $\Xi^-$(1320) from the data in Fig.~\ref{fig:mmkk.c.vtime.doca.vtx.vtkk}. The sideband range is from $3\sigma$ to $6\sigma$ on either side of the peak. These data have been divided by the photon flux and normalized to arbitrary units.}
+\end{figure}
+
+The measured number of $\Xi^-$(1320) particles detected, labeled as ``measured yield,'' is shown in Figs.~\ref{fig:xi1320.yield}. Correcting for the photon flux ($F$) and the target size and material gives the flux-corrected measured yield ($Y$), seen in Fig.~\ref{fig:xi1320.yieldflux}:
+\begin{equation}
+    Y = \frac{\rho \ell N_A}{w} \frac{N}{F},
+    \label{eqn:fluxcorryield}
+\end{equation}
+where $\rho$ is the density of liguid hydrogen ($0.0708~\frac{\mathrm{g}}{\mathrm{cm}^3}$), $\ell$ is the target length ($40$~cm), $N_A$ is Avogadro's number ($6.022\times10^{23}$) and $w$ is the atomic weight of hydrogen ($1.00794$). The statistical error of this yield is given as
+\begin{equation}
+    \delta Y = Y \times \left(
+        \frac{\delta N^2}{N^2} + \frac{1}{F}
+        \right)^\frac{1}{2},
+    \label{eqn:fluxcorryield.err}
+\end{equation}
+where the error on the flux is given by Poisson statistics:
+\begin{equation}
+    \delta F = \sqrt{F}.
+\end{equation}
+The value $Y$ is labeled as the ``detected total cross section ($\sigma$)'' since it is equal to the total cross section times the acceptance for this reaction. It is the closest result presented before any model is introduced into the calculation. As discussed in the following sections, this choice of model brings with it the largest source of systematic error but it is required to obtain the acceptance of the detector for the observed states.
+
+\begin{figure}[bh]\centering
+    \includegraphics[width=0.98\columnwidth]{\figures/mmkk/xi1320_yield.eps}
+    \caption[\texorpdfstring{$\Xi^-$}{Xi-}(1320) Measured Yield]{\label{fig:xi1320.yield}The measured yield of the ground state $\Xi^-$(1320). Shown are the data with selections described in Tables~\ref{tab:vtime.cuts} and \ref{tab:kpkp.cuts} with and without the \abbr{TOF} energy deposit cut. The plot on the right has the added requirement of an in-time proton.}
+\end{figure}
+
+\begin{figure}[bh]\centering
+    \includegraphics[width=0.98\columnwidth]{\figures/mmkk/xi1320_yield_flux.eps}
+    \caption[\texorpdfstring{$\Xi^-$}{Xi-}(1320) Measured Yield]{\label{fig:xi1320.yieldflux}The flux-corrected measured yield ($Y$ from Eq.~\ref{eqn:fluxcorryield}) of the ground state $\Xi^-$(1320). Shown are the data with selections described in Tables~\ref{tab:vtime.cuts} and \ref{tab:kpkp.cuts} with and without the \abbr{TOF} energy deposit cut. The plot on the right has the added requirement of an in-time proton.}
+\end{figure}
+
+\clearpage

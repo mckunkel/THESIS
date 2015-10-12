@@ -1,0 +1,126 @@
+%\documentclass[12pt,a4paper]{report}
+%\usepackage[latin1]{inputenc}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{graphicx}
+%\author{Michael C. Kunkel}
+%\graphicspath{{/Users/Mike/phdthesis/MY_THESIS/figures/print/}}
+%\begin{document}
+%\input{variables}
+%\input{/Users/Mike/phdthesis/MY_THESIS/analysis/general.tex}
+%\end{document}
+
+\tolerance=10000
+
+     \documentclass[12pt]{report} 
+
+\usepackage{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,bm,bbold}
+\usepackage{amssymb}
+\usepackage{slashed}
+
+%\usepackage[caption=false]{subfig}
+%\usepackage[lofdepth,lotdepth]{subfig}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage[toc]{appendix}
+%\usepackage{color}
+%\usepackage[usenames,dvipsnames]{color}
+
+\usepackage{setspace}
+\usepackage{placeins}
+\usepackage{wasysym}
+\graphicspath{{/Users/Mike/phdthesis/MY_THESIS/figures/print/}}
+
+%%%%%%%%%%%%%%%%%
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage{cleveref}
+
+\usepackage[export]{adjustbox}
+
+
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{pifont}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{convert gif:#1 png:\OutputFile}
+\AppendGraphicsExtensions{.gif}
+
+\usepackage{slashed}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{ODUthesis}  %%%%%%%%%%%%%
+\usepackage{longtable}
+\makeatletter
+\def\LT@c@ption#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty\else
+     {\let\\\space
+     \addcontentsline{lot}{table}{\protect\numberline{\thetable.}{#2}}}%
+  \fi}
+\makeatother
+
+%\renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{equation}}
+
+%\tablespagefalse
+
+\usepackage[labelsep=period]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{document}
+\input{variables}
+
+%%%%%%%%%%%%%%%%%%%%% Publisher's Area please ignore %%%%%%%%%%%%%%%
+%
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Photoproduction of \piz on hydrogen with CLAS from 1.1 GeV - 5.45 GeV using $\lowercase{e}^{+}\lowercase{e}^{-}\gamma$ decay}
+
+
+\author{Michael C. Kunkel}  
+
+      
+        \principaladviser{Moskov Amaryan}
+\member{Ian Balitsky}  %This command produces a signature line for the specified member on the
+\member{Alex Godunov}  %title page. Use on instance of this command for each member of the
+                   %committee other than the advisor up to a total of 5 members.
+\member{Chester Grosch} 
+\member{Lawrence Weinstein} 
+
+
+\degrees{M.S. May 2008, Old Dominion University}
+
+\dept{Physics}          %for example \dept{physics}
+
+\submitdate{December 2014}
+
+%\phdfalse          %produces language on title page for Masters Thesis. Otherwise the default
+                    %is for a Ph.D. dissertation.
+
+%\copyrightfalse    %suppresses copyright notice
+
+%\figurespagefalse  %suppresses List of Figures
+
+%\tablespagefalse   %suppresses List of Tables
+
+%\vita{The text of the Vita goes here.}
+
+\input{/Users/Mike/phdthesis/MY_THESIS/analysis/general.tex}
+\newpage
+
+
+
+\end{document}

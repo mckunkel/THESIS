@@ -1,0 +1,21 @@
+\setcounter{chapter}{1}
+\chapter{\label{sec:data}\g12 Data Acquisition \& Reconstruction}
+
+A raw event collected by the data acquisition (\abbr{DAQ}, see Sec.~\ref{sec:clas.daq}) consisted of many hundreds of ``hits'' corresponding to signals from the detector that were strong enough to be recorded, that is, above a certain threshold. The hits paired detector element identification numbers with either an \abbr{ADC} or \abbr{TDC} value. These were converted to manageable units in energy for \abbr{ADC}s, time for \abbr{TDC}s and sector/wire number for the element \abbr{ID}s. After that, these hits were grouped into ``clusters'' which eventually represented measured particles that had traveled through the detector. This process, called \emph{reconstruction}, is detailed in the following sections and starts with the definition of the ``trigger'' that told the \abbr{DAQ} to record an event.
+
+The \emph{main production trigger} used by the \g12 experiment was a coincidence of two charged tracks in different sectors and at the same time as a tagged photon above 4.4~GeV. These tracks were identified at the trigger level by the coincidence of a start counter hit and a time-of-flight hit in the same sector as identified by ``\abbr{ST$\times$TOF}'' in Fig.~\ref{fig:clas.daq.trigsec}. With an electron beam current of 60--65~nA, the \abbr{DAQ} rate was approximately 8~kHz with the two-track trigger contributing approximately 5.5~kHz to this total. All trigger \emph{bits} used during \g12, numbered 1--12, can be found in Tables~\ref{tab:data.trig.conf.1}, \ref{tab:data.trig.conf.2} and \ref{tab:data.trig.conf.3}.
+
+Several lower-rate triggers were used in addition to the main production trigger. Of special note was bit 6: a single lepton in coincidence with a single charged track. This trigger matched hits in the electromagnetic calorimeter with the \v{C}erenkov counter, both above certain thresholds as discussed below. It is designated by ``\abbr{EC$\times$CC}'' in Table~\ref{tab:data.trig.conf.2}, and overlapped with the production trigger adding approximately 1~kHz to the \abbr{DAQ} rate. Also of note, bit 12 was a three-track coincidence without requiring an in-time tagger hit (see Sec.~\ref{sec:clas.tagr}) contributing an additional 1~kHz.
+
+The \g12 experiment incorporated several runs which consisted of lower current ($\sim24$~nA), single track triggers. These were part of a late proposal\cite{clas.proposal.pion}, led by the Duke University group, as discussed in Sec.~\ref{sec:clas.g12} on page \pageref{sec:clas.g12}. Also, Several calibration and normalization runs were taken throughout the experiment as shown in Table~\ref{tab:data.calibruns}. For this analysis, these were used largely for alignment corrections and the total photon flux determination.
+
+The raw data recorded from the \abbr{CLAS} detector consisted of \abbr{ADC} and \abbr{TDC} signals from the individual elements of each subsystem. The data also included scalar values from the accelerator such as the \abbr{RF} clock, which had the best timing resolution of all signals. Reconstruction of tracks from these element hits started by spatially grouping the drift-chamber (\abbr{DC}) hits into \emph{hit-based} candidate tracks and then refining these using the timing from the start (\abbr{ST}) and time-of-flight (\abbr{TOF}) counters. Particle identification was then done on these tracks by several means including mass determination and energy deposit as discussed later in this chapter. Neutral particles that did not fire the \abbr{DC} (photons, for example) were identified by certain signatures in the electromagnetic calorimeter (\abbr{EC}), though the efficiency for detecting neutral particles was much lower than for charged particles.
+
+The tracks which were the result of reconstruction consisted primarily of momentum and vertex information. Timing from the \abbr{TOF} and \abbr{ST} were used during analysis to fine-tune the particle identification. This chapter discusses the reconstruction of tracks from raw data, the resolution of the momenta and timing information, and finally, a technical itemization of the variables used in the analysis of this work, and their inter-relationships.
+
+\input{data/run}
+\input{data/trig}
+\input{data/calib}
+\input{data/cook}
+%%%\input{data/resolution}
+%\input{data/variables}

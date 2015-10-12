@@ -1,0 +1,8 @@
+\subsection{\label{sec:analysis.event_selection}Event Selection}
+
+During the skimming process, \abbr{CLASEVENT} employs several corrections to the data that are necessary to analyze the data. Such corrections are ``energy-loss'' and ``tagger-sag'' correction which are discussed in Sec.~\ref{sec:analysis.corrections.eloss} and Sec.~\ref{sec:analysis.corrections.beam} respectively. 
+
+The skim performed on the \abbr{BOS} files included the criteria of Table~\ref{tab:skim.requirements} using the \abbr{PART} reconstruction scheme. There is another particle reconstruction scheme, \abbr{EVNT}. However this method was first reported unreliable for \g12 by the author of this manuscript and then later confirmed by various other users.
+\input{tables/skim_requirements}
+Pions were skimmed initially and then re-identified as leptons by changing the mass of the pion. This method is sufficient when the decaying particle's mass, i.e. $m_{\pi^0}$, is less than that of pions. If the event satisfied the requirements listed in Table~\ref{tab:skim.requirements}, then all \abbr{TOF}, \abbr{ST}, momentum and vertex information was outputted as well as \abbr{CC} and \abbr{EC} information for the $\pi^{\pm}$ particles to be used to identify leptons, as discussed in Sec~\ref{sec:analysis.pid}. To reduce the size of the data set, a cut was placed on the total missing mass of $\gamma p \to p \pi^{+} \pi^{-}$ to be less than 275~MeV. This cut was broad enough to not interfere with \piz selection from single \piz production i.e. $\gamma p \to p \pi^{0}$ when assigned the pion the lighter mass of a electron/positron. This broad cut also does not interfere with \piz production from light meson decay, i.e $\gamma p \to p \omega \to p \pi^{+} \pi^{-} \pi^{0}$.
+
