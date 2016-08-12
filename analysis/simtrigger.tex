@@ -1,3 +1,26 @@
+\section{Simulation}
+
+\subsection{PLUTO++ Event Generator}\label{sec:pluto}
+
+Pluto~\cite{PLUTO} is a Monte-Carlo event generator designed for the study of hadronic interactions and heavy ion reactions in \abbr{HADES}, \abbr{FAIR} and upcoming \abbr{PANDA} collaborations. The versatility of Pluto enables its use as an event generator for photoproduction in \abbr{CLAS}. For hadronic interactions, Pluto can generate interactions from pion production threshold to intermediate energies of a few~GeV per nucleon. The entire software package is based on ROOT and uses ROOT's embedded C++ interpreter to control the generation of events. Programming event reaction can be set up with a few lines of ROOT macro code without detailed knowledge of programming. Some features in Pluto are, but not limited to;
+\begin{itemize}
+	\item Ability to generate events in phase space.
+	\item Ability to generate events with a continuous bremsstrahlung photon beam.
+	\item Ability to generate events weighted by a user defined $t$-slope.
+	\item Ability to generate events weighted by a user defined cross-section.
+	\begin{itemize}
+		\item Total cross section can be inputted via functional form or histogram.
+		\item Differential cross sections can be inputted via functional forms or histograms for specific beam energies up to 110 histograms relating to intervals of beam energy.
+	\end{itemize}
+	\item Ability to generate events that decay via already established physics parameters, i.e.~transition form factors.
+	\item Ability to generate events that decay via modified established physics parameters.
+	\item Ability to generate events with multiple production channels, weighted by user inputted cross-section probability.
+	\item Ability to generate events with multiple decay channels, weighted by user inputted branching ratio.
+	\item Ability to perform vertex smearing.
+	\item Ability to create virtual detectors.
+\end{itemize}
+
+For the analysis presented in this work, Pluto was used in conjunction with known differential cross sections to verify simulation momentum smearing and tagger resolution, Sec.~\ref{sec:analysis.simsmear.verify}. Pluto was also utilized as a phase space generator in this analysis, to perform a ``tune'' on the kinematic fitter, Sec.~\ref{sec:analysis.fitting}, to calculate the acceptance corrections Sec.~\ref{sec:results.acceptance}, and to calculate the normalization Sec.~\ref{sec:results.normalization}.
 \subsection{Simulating the Lepton Trigger}\label{sec:analysis.accept.trigger}
 During the collection process, for an event to be written by the \abbr{DAQ} it must have passed at least one of the trigger ``bits" defined in Sec.~\ref{sec:clas.g12.conditions.data}. As discussed in Sec.~\ref{sec.data.trig.lepton}, the process of lepton triggering required a coincidence between the \abbr{EC} and the \abbr{CC} subsystems. This coincidence was established by using the voltage sum of the \abbr{CC} for a sector and the voltage sum of the \abbr{EC} for the same sector and comparing each sum to a preset threshold described in Table~\ref{tab:data.ecccthresh}. However when \abbr{GSIM} simulates tracks through the \abbr{CC} and \abbr{EC}, it does not account for the minimum voltage threshold that was required for data collection, moreover the simulation of the trigger must match the trigger efficiency discussed in Sec.~\ref{sec:analysis.trigger.verify}.
 

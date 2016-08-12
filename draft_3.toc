@@ -1,0 +1,111 @@
+\hfill Page\par 
+\contentsline {chapter}{\uppercase {List of Tables}}{x}{Doc-Start}
+\contentsline {chapter}{\uppercase {List of Figures}}{xviii}{Doc-Start}
+\vspace *{12pt}
+\noindent Chapter
+
+\contentsline {chapter}{\numberline {1.}\uppercase {Introduction and Motivation}}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}\uppercase {Hadrons}}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}\uppercase {Light Pseudoscalar Mesons}}{3}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}\uppercase {$\mathrm {\pi ^{0}}\ $Production}}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}\uppercase {Low Energy $\mathrm {\pi ^{0}}\ $Production}}{4}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}\uppercase {Isospin Representation}}{6}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}\uppercase {Structure Functions}}{7}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}\uppercase {SAID}}{9}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}\uppercase {Summary}}{10}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.6}\uppercase {High Energy $\mathrm {\pi ^{0}}\ $Production}}{10}{subsection.1.2.6}
+\contentsline {section}{\numberline {1.3}\uppercase {$\mathrm {\pi ^{0}}\ $Decays}}{12}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}\uppercase {Two Photon Decay}}{13}{subsection.1.3.1}
+\contentsline {subsubsection}{\emph {Squared Matrix Element}}{14}{section*.1}
+\contentsline {subsubsection}{\emph {Decay rate}}{15}{section*.2}
+\contentsline {subsubsection}{\emph {Photon Conversion to $e^+e^-\ $Pairs}}{16}{section*.3}
+\contentsline {subsection}{\numberline {1.3.2}\uppercase {Dalitz Decay}}{17}{subsection.1.3.2}
+\contentsline {subsubsection}{\emph {Squared Matrix Element}}{17}{section*.4}
+\contentsline {subsubsection}{\emph {Decay rate}}{18}{section*.5}
+\contentsline {subsection}{\numberline {1.3.3}\uppercase {Summary}}{20}{subsection.1.3.3}
+\contentsline {chapter}{\numberline {2.}\uppercase {The CLAS detector at Thomas Jefferson National Accelerator Facility }}{22}{chapter.2}
+\contentsline {section}{\numberline {2.1}\uppercase {Continuous Electron Beam Accelerator Facility}}{24}{section.2.1}
+\contentsline {section}{\numberline {2.2}\uppercase {Beam Positioning}}{27}{section.2.2}
+\contentsline {section}{\numberline {2.3}\uppercase {Photon Tagger}}{30}{section.2.3}
+\contentsline {section}{\numberline {2.4}\uppercase {CEBAF Large Acceptance Spectrometer (CLAS)}}{32}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}\uppercase {Hydrogen Cryotarget}}{35}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}\uppercase {Start Counter}}{36}{section.2.5}
+\contentsline {section}{\numberline {2.6}\uppercase {Superconducting Toroidal Magnet}}{38}{section.2.6}
+\contentsline {section}{\numberline {2.7}\uppercase {Drift Chambers}}{39}{section.2.7}
+\contentsline {section}{\numberline {2.8}\uppercase {Cherenkov Radiation and Detectors}}{43}{section.2.8}
+\contentsline {section}{\numberline {2.9}\uppercase {Time-of-Flight Detectors}}{48}{section.2.9}
+\contentsline {section}{\numberline {2.10}\uppercase {Electromagnetic Calorimeters}}{50}{section.2.10}
+\contentsline {subsection}{\numberline {2.10.1}\uppercase {Electromagnetic Calorimeter}}{50}{subsection.2.10.1}
+\contentsline {subsection}{\numberline {2.10.2}\uppercase {The \textsc {\texttt {CLAS}} Electromagnetic Calorimeter}}{52}{subsection.2.10.2}
+\contentsline {chapter}{\numberline {3.}\uppercase {The \emph {g12} Experiment}}{56}{chapter.3}
+\contentsline {section}{\numberline {3.1}\uppercase {\emph {g12} Data Acquisition and Triggering }}{57}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}\uppercase {\emph {g12} Trigger Configuration}}{58}{subsection.3.1.1}
+\contentsline {subsubsection}{Lepton Triggering and Neutral Triggering}{58}{section*.6}
+\contentsline {section}{\numberline {3.2}\uppercase {\emph {g12} Run Summary}}{64}{section.3.2}
+\contentsline {section}{\numberline {3.3}\uppercase {Raw Data Reconstruction}}{67}{section.3.3}
+\contentsline {section}{\numberline {3.4}\uppercase {Particle Identification}}{70}{section.3.4}
+\contentsline {chapter}{\numberline {4.}\uppercase {Particle Reconstruction and Analysis}}{73}{chapter.4}
+\contentsline {section}{\numberline {4.1}\uppercase {Data Reduction and Event Selection}}{73}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}\uppercase {Excluded Runs}}{73}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}\uppercase {Event Selection}}{75}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}\uppercase {Beam Photon Identification}}{75}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}\uppercase {Particle Identification}}{77}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}\uppercase {\emph {g12} Corrections}}{77}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}\uppercase {Energy Loss}}{78}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}\uppercase {Beam Corrections}}{78}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}\uppercase {Fiducial Cuts}}{89}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}\uppercase {Geometric Fiducial Cuts}}{89}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}\uppercase {\textsc {\texttt {TOF}} Fiducial Cuts}}{92}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}\uppercase {\textsc {\texttt {EC}} Fiducial Cuts}}{95}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}\uppercase {Simulation}}{100}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}\uppercase {Simulation Verification}}{100}{subsection.4.4.1}
+\contentsline {section}{\numberline {4.5}\uppercase {Simulation}}{101}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}\uppercase {PLUTO++ Event Generator}}{101}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}\uppercase {Simulating the Lepton Trigger}}{102}{subsection.4.5.2}
+\contentsline {subsubsection}{Validity of Trigger Simulation}{103}{section*.7}
+\contentsline {section}{\numberline {4.6}\uppercase {PLUTO++ Event Generator}}{104}{section.4.6}
+\contentsline {section}{\numberline {4.7}\uppercase {Kinematic Fitting}}{105}{section.4.7}
+\contentsline {subsubsection}{Confidence Levels and Pull Distributions}{106}{section*.8}
+\contentsline {subsubsection}{Tuning}{106}{section*.9}
+\contentsline {subsection}{\numberline {4.7.1}\uppercase {Analysis Fitting}}{114}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}\uppercase {Kinematic Fitting Analysis and Cuts}}{117}{subsection.4.7.2}
+\contentsline {subsubsection}{1-C \& 4-C Cuts}{122}{section*.10}
+\contentsline {subsubsection}{Missing Energy Cut}{125}{section*.11}
+\contentsline {subsubsection}{2-C Cut}{128}{section*.12}
+\contentsline {section}{\numberline {4.8}\uppercase {Particle Vertex Timing Cuts}}{131}{section.4.8}
+\contentsline {section}{\numberline {4.9}\uppercase {$z$ Vertex Cuts}}{132}{section.4.9}
+\contentsline {subsubsection}{Final Data Distribution}{134}{section*.13}
+\contentsline {section}{\numberline {4.10}\uppercase {Simulation Kinematic Variables Verification}}{135}{section.4.10}
+\contentsline {section}{\numberline {4.11}\uppercase {Lepton Trigger Efficiency for $\mathrm {\pi ^{0}}\ $Candidates}}{143}{section.4.11}
+\contentsline {section}{\numberline {4.12}\uppercase {Target Density}}{143}{section.4.12}
+\contentsline {section}{\numberline {4.13}\uppercase {Photon Normalization}}{145}{section.4.13}
+\contentsline {section}{\numberline {4.14}\uppercase {Normalization}}{146}{section.4.14}
+\contentsline {subsection}{\numberline {4.14.1}\uppercase {Normalization History}}{146}{subsection.4.14.1}
+\contentsline {subsection}{\numberline {4.14.2}\uppercase {\emph {g12} Normalization Procedure}}{146}{subsection.4.14.2}
+\contentsline {subsection}{\numberline {4.14.3}\uppercase {\emph {g12} Normalization Results}}{150}{subsection.4.14.3}
+\contentsline {subsection}{\numberline {4.14.4}\uppercase {Normalization Comparison}}{160}{subsection.4.14.4}
+\contentsline {subsection}{\numberline {4.14.5}\uppercase {Normalization Uncertainties}}{161}{subsection.4.14.5}
+\contentsline {chapter}{\numberline {5.}\uppercase {Results}}{162}{chapter.5}
+\contentsline {section}{\numberline {5.1}\uppercase {Cross-Section}}{162}{section.5.1}
+\contentsline {section}{\numberline {5.2}\uppercase {Acceptance}}{163}{section.5.2}
+\contentsline {section}{\numberline {5.3}\uppercase {Statistical Uncertainties}}{164}{section.5.3}
+\contentsline {section}{\numberline {5.4}\uppercase {Systematic Uncertainty}}{167}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}\uppercase {Branching Ratio Systematic Uncertainty}}{167}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}\uppercase {Cut Based Systematic Uncertainty}}{169}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}\uppercase {Photon Flux Systematic Uncertainty}}{171}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.4}\uppercase {Detector Efficiency Systematic Uncertainty}}{172}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}\uppercase {$z$-vertex Cut Systematic Uncertainty}}{174}{subsection.5.4.5}
+\contentsline {subsection}{\numberline {5.4.6}\uppercase {Target Systematic Uncertainty}}{174}{subsection.5.4.6}
+\contentsline {subsection}{\numberline {5.4.7}\uppercase {Total Systematic Uncertainty}}{174}{subsection.5.4.7}
+\contentsline {section}{\numberline {5.5}\uppercase {Comparison to World Data and SAID Fits}}{176}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}\uppercase {Differential Cross-Sections $\frac {\lowercase {d}\sigma }{\lowercase {d}\Omega }$}}{176}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}\uppercase {Excitation Functions}}{181}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}\uppercase {$t$-Dependence}}{183}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.4}\uppercase {Improvement to Previous SAID Fits}}{187}{subsection.5.5.4}
+\contentsline {subsubsection}{CGLN Amplitudes}{187}{section*.14}
+\contentsline {subsubsection}{$\chi ^2$ Improvements}{189}{section*.15}
+\contentsline {subsection}{\numberline {5.5.5}\uppercase {Discussion of SAID Fits and Comaprision to World Data}}{189}{subsection.5.5.5}
+\contentsline {subsection}{\numberline {5.5.6}\uppercase {Comparison with Theory}}{190}{subsection.5.5.6}
+\contentsline {section}{\numberline {5.6}\uppercase {Conclusions}}{191}{section.5.6}
+\contentsline {chapter}{BIBLIOGRAPHY}{193}{section*.16}
+\contentsline {chapter}{APPENDICES}{197}{section*.16}
