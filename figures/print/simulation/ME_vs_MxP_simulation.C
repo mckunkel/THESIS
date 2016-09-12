@@ -1,7 +1,7 @@
 {
 //=========Macro generated from canvas: c1/c1
 //=========  (Fri Mar  7 12:40:05 2014) by ROOT version5.34/10
-   TCanvas *c1 = new TCanvas("c1", "c1",133,256,723,500);
+  TCanvas *c1 = new TCanvas("c1", "c1",4,22,1400,528);
    gStyle->SetOptStat(0);
    c1->Range(-0.032,-0.2,0.1813333,1.133333);
    c1->SetFillColor(10);
@@ -5882,7 +5882,45 @@ palette->SetTitleSize(0.035);
    pt->SetTextSize(0.05);
    TText *text = pt->AddText("M_{E}(p e^{+} e^{-}) vs M_{x}^{2}(p)  for Simulation");
    pt->Draw();
+  
+  tex = new TLatex(0.1114631,0.3531915,"#pi^{+}#pi^{-}");
+  tex->SetTextSize(0.09361702);
+  tex->SetLineWidth(2);
+  tex->SetTextColor(kRed);
+  
+  tex->Draw();
+  TArrow *arrow = new TArrow(0.12034,0.3163121,0.1558479,0.08652482,0.05,">");
+  arrow->SetFillColor(1);
+  arrow->SetFillStyle(1001);
+  arrow->SetLineWidth(3);
+  arrow->SetLineColor(kRed);
+  
+  arrow->Draw();
+  arrow = new TArrow(0.12034,0.3163121,0.06077852,0.06382978,0.05,">");
+  arrow->SetFillColor(1);
+  arrow->SetFillStyle(1001);
+  arrow->SetLineWidth(3);
+  arrow->SetLineColor(kRed);
+  
+  arrow->Draw();
+  tex = new TLatex(0.04130649,0.5886525,"#pi^{0}");
+  tex->SetTextSize(0.09361702);
+  tex->SetLineWidth(2);
+  tex->SetTextColor(kRed);
+  
+  tex->Draw();
+  arrow = new TArrow(0.03930201,0.6141844,0.02670246,0.5460993,0.05,">");
+  arrow->SetFillColor(1);
+  arrow->SetFillStyle(1001);
+  arrow->SetLineWidth(3);
+  arrow->SetLineColor(kRed);
+  
+  arrow->Draw();
+  
+  
    c1->Modified();
    c1->cd();
    c1->SetSelected(c1);
+  
+  c1->Print("ME_vs_MxP_simulation_II.pdf");
 }
